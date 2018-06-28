@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe IssuesController do
   before do
     allow_any_instance_of(GithubTokenAuth)

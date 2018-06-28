@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Event do
   context '.create' do
     let(:event_valid) { build(:event) }
