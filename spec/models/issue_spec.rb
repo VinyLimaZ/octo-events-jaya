@@ -1,6 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-describe Issue, type: :model do
+describe Issue do
   context '.find_or_create_by' do
     let(:issue_params) { attributes_for(:issue) }
 

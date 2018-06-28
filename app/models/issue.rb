@@ -1,5 +1,10 @@
+# frozen_string_literal: true
+
 class Issue < ApplicationRecord
   has_many :events
+
+  validates_presence_of :number, :title, :url, :state
+  validates_inclusion_of :state, in: %w[opened closed reopened]
   validates_uniqueness_of :number
 
   def self.find_or_create_by(params)

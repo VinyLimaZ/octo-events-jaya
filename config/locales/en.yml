@@ -1,4 +1,8 @@
 en:
+  errors:
+    messages:
+      not_found: Register not found, please, verify
+      signature_mismatch: Signature mismatch! You don't have the right to do this!
   activerecord:
     models:
       issue: Issue
@@ -14,8 +18,9 @@ en:
         issue:
           attributes:
             number:
-              taken: "is already on our database, please, check it"
+              taken: is already on our database, please, check it
         event:
           attributes:
             action:
               inclusion: 'is invalid, we count only opened/closed/reopened'
+              blank: is blank, please, verify

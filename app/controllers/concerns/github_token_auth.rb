@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GithubTokenAuth
   SECRET_GITHUB_TOKEN = Rails.env['SECRET_GITHUB_TOKEN'] || Rails.application.secrets.secret_github_token
 
