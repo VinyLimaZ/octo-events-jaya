@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :event do
-    action %w[open closed reopen].sample
+    action %w[opened closed reopened].sample
 
     association :issue
   end
