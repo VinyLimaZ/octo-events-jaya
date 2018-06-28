@@ -18,8 +18,9 @@ en:
         issue:
           attributes:
             number:
-              taken: "is already on our database, please, check it"
+              taken: is already on our database, please, check it
         event:
           attributes:
             action:
               inclusion: 'is invalid, we count only opened/closed/reopened'
+              blank: is blank, please, verify

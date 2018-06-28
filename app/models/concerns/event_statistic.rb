@@ -14,9 +14,11 @@ class EventStatistic
 
   def parse_info
     info_parsed = {}
+
     ACTION_TYPES.each do |action|
       info_parsed.merge!("#{action}": Event.send(action).count)
     end
+
     info_parsed
   end
 end

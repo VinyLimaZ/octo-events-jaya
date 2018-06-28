@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :issue do
     number { rand(100) }
+    state { %w[opened closed reopened].sample }
     title 'Issue test'
     body 'This is the body'
-    state { %w[open closed reopen] }
+    url 'http://www.pudim.com.br'
   end
 end
