@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-describe IssuesController, type: :controller do
+describe IssuesController do
   before do
     allow_any_instance_of(GithubTokenAuth)
       .to receive(:verify_github_webhook_token)

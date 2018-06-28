@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-RSpec.describe EventsController, type: :controller do
+describe EventsController do
 
   describe "GET #index" do
     let!(:event) { create_list(:event, 5) }

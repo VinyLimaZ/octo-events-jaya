@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-describe Event, type: :model do
+describe Event do
   context '.create' do
     let(:event_valid) { build(:event) }
     it 'with success' do
