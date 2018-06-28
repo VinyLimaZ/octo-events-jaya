@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
-describe IssuesController do
+describe Api::V1::IssuesController do
   before do
     allow_any_instance_of(GithubTokenAuth)
       .to receive(:verify_github_webhook_token)
       .and_return(nil)
+
     allow(JSON).to receive(:parse).and_return({})
-    allow_any_instance_of(Hash).to receive(:dig).with('action').and_return('opened')
+
+    allow_any_instance_of(Hash)
+      .to receive(:dig).with('action')
+      .and_return('opened')
   end
 
   describe 'POST #create' do
