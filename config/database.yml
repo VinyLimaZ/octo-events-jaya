@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: development
+  database: octo_events_jaya_development
 
 test:
   <<: *default
-  database: test
+  database: octo_events_jaya_test
 
 production:
   <<: *default
-  database: production
+  database: octo_events_jaya_production
