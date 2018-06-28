@@ -21,15 +21,5 @@ describe Issue, type: :model do
       expect(issue_two.save).to be false
       expect(issue_two_errors).to include error_message
     end
-
-    let(:payload) do
-      subject.attributes.merge(state: 'reopen')
-    end
-
-    it 'create a new event if issue is already on base' do
-      described_class.find_or_create_by(payload)
-
-      expect(subject.events).to be 1
-    end
   end
 end

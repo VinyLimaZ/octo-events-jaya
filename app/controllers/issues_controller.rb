@@ -2,8 +2,15 @@ class IssuesController < ApplicationController
   before_action :verify_github_webhook_token, only: :create
 
   def create
-    Issue.find_or_create_by(issue_params)
+    issue = Issue.find_or_create_by(issue_params)
+    issue.events.create(event_params)
+
     render json: { message: :ok }, status: :created
+  end
+
+  def statistics
+    statistic = EventStatistic.call
+    render json: statistic, status: :ok
   end
 
   private
@@ -11,9 +18,14 @@ class IssuesController < ApplicationController
   def issue_params
     params.require(:issue).permit(
       :number,
+      :state,
       :title,
       :body,
-      :state,
-      :url)
+      :url
+    )
+  end
+
+  def event_params
+    { action: JSON.parse(request.body.read).dig('action') }
   end
 end
