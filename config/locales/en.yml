@@ -30,4 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      issue: Issue
+    attributes:
+      issue:
+        url: URL
+        body: description
+        state: event
+    errors:
+      models:
+        issue:
+          attributes:
+            number:
+              taken: "is already on our database, please, check it"
