@@ -4,14 +4,12 @@ class Issue < ApplicationRecord
   has_many :events
 
   validates_presence_of :number, :title, :url, :state
-  validates_inclusion_of :state, in: %w[opened closed reopened]
+  validates_inclusion_of :state, in: %w[open opened closed reopen reopened]
   validates_uniqueness_of :number
 
   def self.find_or_create_by(params)
     find_by_number_and_return(params) || create(params)
   end
-
-  private
 
   def self.find_by_number_and_return(params)
     issue = find_by_number(params[:number])
