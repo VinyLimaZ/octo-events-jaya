@@ -4,6 +4,8 @@ class IssuesController < ApplicationController
   before_action :verify_github_webhook_token, only: :create
 
   def create
+    reply_ping and return if ping?
+
     issue = Issue.find_or_create_by(issue_params)
     issue.events.create(event_params)
 
@@ -15,7 +17,15 @@ class IssuesController < ApplicationController
     render json: statistic, status: :ok
   end
 
+  def reply_ping
+    render json: { message: 'I catch your ping' }, status: :ok
+  end
+
   private
+
+  def ping?
+    request.headers.env['HTTP_X_GITHUB_EVENT'].eql? 'ping'
+  end
 
   def issue_params
     params.require(:issue).permit(
